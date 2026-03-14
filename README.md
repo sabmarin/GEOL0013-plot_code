@@ -1,4 +1,4 @@
-# Practical Week 2 Solutions
+#GEOL0013 plot code
 
 ## Description
 
