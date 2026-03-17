@@ -45,20 +45,20 @@ for scenario, base, name in zip(scenarios, baselines, scenario_names):
         if var in ['tas', 'tasmax']:
             # use absolute difference for temperature variables in K
             data_to_plot = (scenario - base)[var]
-            levels = np.arange(1, 4, 1) 
+            levels = np.arange(-2, 4, 0.5) 
             cmap = 'RdBu_r'  # appropriate for temperature differences, with blue for cooling and red for warming
             label = 'K'  # unit for temperature difference
         else:
             # use percentage difference for precipitation, snow cover and NPP
             data_to_plot = 100 * ((scenario - base) / base)[var]
             if var == 'pr':
-                levels = np.arange(-4, 7, 1)
+                levels = np.arange(-4, 7, 0.5)
                 cmap = 'BrBG'
             elif var == 'snc':
-                levels = np.arange(-42, -21, 2)
+                levels = np.arange(-42, -21, 1)
                 cmap = 'Blues_r'  # from deep blue to light blue, avoiding light colors in the middle
             elif var == 'npp':
-                levels = np.arange(7, 16, 1)
+                levels = np.arange(7, 16, 0.5)
                 cmap = 'Greens'  # same as above but for green colors
             label = '%'
         

@@ -219,7 +219,7 @@ def get_data(scenario, season='all', stat='mean'):
     return data
 
 
-def plot_data(data, variable, name, levels, cmap, label,scale_bar_length=100,scale_bar_position=(0.1, 0.1)):
+def plot_data(data, variable, name, levels, cmap, label, scale_bar_length=100, scale_bar_position=(0.1, 0.1), location=[19.9, 27.8, 52.9, 57.4]):
     # define the lats and lons for plotting, and add a cyclic point to avoid gaps in the plot
     lats = data.y
     data_to_plot, lons = add_cyclic_point(data, data.x)
@@ -232,7 +232,7 @@ def plot_data(data, variable, name, levels, cmap, label,scale_bar_length=100,sca
                      levels=levels,
                      extend='both')
     
-    ax.set_extent([19.9, 27.8, 52.9, 57.4], ccrs.PlateCarree())  # leave some space around lithiuania
+    ax.set_extent(location, ccrs.PlateCarree())  # leave some space around lithiuania
     ax.coastlines()
     ax.add_feature(cfeature.BORDERS, linestyle='-', alpha=0.7)
     ax.set_title(f'{variable} difference: {name} ({label})')
